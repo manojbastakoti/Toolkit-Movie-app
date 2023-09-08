@@ -13,8 +13,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+    if (term === "") alert("Please enter a valid movie or show!");
     dispatch(fetchAsyncMovies(term));
     dispatch(fetchAsyncShows(term));
+    setTerm("");
   };
   return (
     <div className="header bg-yellow-500 h-20 flex items-center justify-between">
